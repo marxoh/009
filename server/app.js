@@ -21,7 +21,7 @@ export async function startApolloServer(typeDefs, resolvers) {
     const server = new ApolloServer({
         typeDefs,   //de javascript se resumen quitando la asignacion
         resolvers,
-        context: ({req}) => ({req})
+        //context: ({req}) => ({req})
     })
 
     //antes de integrar apollo al app debe iniciarse primero
