@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 
 //type: mongoose.Schema.Types.ObjectId
-//: un tipo de ID de mongoDB
+  //un tipo de ID de mongoDB
+//ref: 'Project',
+  //se enlaza el type con Project
 const TaskSchema = mongoose.Schema(
   {
     title: {
