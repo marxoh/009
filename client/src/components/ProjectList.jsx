@@ -8,7 +8,7 @@ export function ProjectList() {
   // console.log(loading, error, data)
 
   if (loading) return <p>Cargando.. .</p>;
-  if (error) return <p>Error.</p>;
+  if (error) return <p>Error al intentar cargar de la base de datos.</p>;
 
   return (
     <div>

@@ -19,6 +19,7 @@ export const resolvers = {
     //(_, args): para cuando pueden pasar un solo parametro o ambos
     createProject: async (_, { name, description }) => {
       // console.log(name, description);
+      // throw new Error('Se cayo el Backend') //prueba de mensaje de error
       const project = new Project({ name, description });
       const savedProject = await project.save();
       return savedProject;
