@@ -11,7 +11,9 @@ export function ProjectList() {
   if (error) return <p>Error al intentar cargar de la base de datos.</p>;
 
   return (
-    <div>
+    //overflow-y-auto: para que la lista de proyectos no pase el cuadro de fondo
+    //y auto para que tenga scrollbar
+    <div className="overflow-y-auto h-96 w-full px-5">
       {data.projects.map((project) => (
         <ProjectCard key={project._id} project={project} />
       ))}

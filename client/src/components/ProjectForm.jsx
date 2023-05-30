@@ -48,7 +48,7 @@ export function ProjectForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="w-2/5 ">
       {error && (
         <div>
           {error.message}
@@ -65,6 +65,7 @@ export function ProjectForm() {
         placeholder="titulo del proyecto"
         onChange={handleChange}
         value={project.name}
+        className="bg-zinc-800 text-white rounded-lg shadow-lg p-4 block w-full mb-3"
       />
       <textarea
         name="description"
@@ -72,9 +73,13 @@ export function ProjectForm() {
         placeholder="description"
         onChange={handleChange}
         value={project.description}
+        className="bg-zinc-800 text-white rounded-lg shadow-lg p-4 block w-full mb-3"
       ></textarea>
-      <button disabled={!project.name || !project.description || loading}>
-        {/* <button disabled={!project.name || !project.description}> */}
+      {/* <button disabled={!project.name || !project.description}> */}
+      <button
+        disabled={!project.name || !project.description || loading}
+        className="bg-blue-500 px-4 py-1 rounded-md text-lg mb-3 disabled:bg-zinc-400"
+      >
         Save
       </button>
     </form>

@@ -5,13 +5,13 @@ import { useParams } from "react-router-dom";
 export function TaskForm() {
   const [createTask] = useMutation(CREATE_TASK, {
     //arreglo de consultas que se van a ejecutar despues de CREATE_TASK
-    refetchQueries: ['getProject']
+    refetchQueries: ["getProject"],
   });
   const params = useParams();
 
   console.log(">> params: ", params);
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     //data con await: es otra forma de recibir los datos de la bd
     //ver de donde saca entonces el error y el loading
@@ -25,21 +25,28 @@ export function TaskForm() {
     createTask({
       variables: {
         title: e.target.titulito.value,
-        projectId: params.prId
+        projectId: params.prId,
       },
     });
     // console.log("> data: ",data)
     // console.log(e.target.titulito.value);
     //e.target: es el formulario que se esta ejecutando
-    e.target.reset()
+    e.target.reset();
     //para que el cursor aparezca ahi
-    e.target.titulito.focus()
+    e.target.titulito.focus();
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="titulito" />
-      <button>+</button>
+      <input
+        type="text"
+        name="titulito"
+        className="bg-zinc-900 text-white w-full p-2 rounded-lg mb-2"
+        placeholder="Agregar una tarea al proyecto."
+      />
+      <button
+        className="bg-sky-900 text-white w-full p-2 rounded-lg"
+      >Add</button>
     </form>
   );
 }

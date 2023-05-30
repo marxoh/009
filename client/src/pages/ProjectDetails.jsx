@@ -1,5 +1,5 @@
 //useParams: trae los parametros automagicamente
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_PROJECT } from "../graphql/Projects";
 //me mataste con tu Tasks mayuscula poye
@@ -23,7 +23,9 @@ export function ProjectDetails() {
     // skip: !params.prId
   });
 
-  const [deleteProject, { data1, error1, loading1 }] = useMutation(DELETE_PROJECT,{
+  const [deleteProject, { data1, error1, loading1 }] = useMutation(
+    DELETE_PROJECT,
+    {
       variables: {
         id: params.prId,
       },
@@ -40,17 +42,26 @@ export function ProjectDetails() {
 
   return (
     <div>
-      <h1>{data.project.name}</h1>
-      <p>{data.project.description}</p>
+      <Link to="/projects">
+        <button className="bg-sky-900 text-white px-3 py-2">Espalda</button>
+      </Link>
+      <div className="bg-zinc-900 mb-2 p-10 flex justify-between">
+        <div>
+          <h1 className="text-2xl">{data.project.name}</h1>
+          <p>{data.project.description}</p>
+        </div>
+      </div>
       <button
-        onClick={(e) => {deleteProject({
+        onClick={(e) => {
+          deleteProject({
             variables: {
               id: params.prId,
             },
           });
           //despues que redireccione a la pagina anterior
-          navigate('/projects/')
+          navigate("/projects/");
         }}
+        className="bg-red-500 px-3 py-2 "
       >
         X..
       </button>
