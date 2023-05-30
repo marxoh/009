@@ -34,3 +34,17 @@ export const GET_PROJECT = gql`
     }
   }
 `;
+
+export const DELETE_PROJECT = gql`
+  mutation ($id: ID!) {
+    deleteProject(_id: $id) {
+      _id
+      name
+      description
+      tasks {
+        _id
+        title
+      }
+    }
+  }
+`;

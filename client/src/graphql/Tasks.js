@@ -16,3 +16,14 @@ export const CREATE_TASK = gql`
     }
   }
 `;
+
+export const DELETE_TASK = gql`
+  mutation($id: ID!) {
+  deleteTask(_id: $id) {
+    _id
+    title
+    projectId
+    createdAt
+  }
+}
+`

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export function TaskForm() {
   const [createTask] = useMutation(CREATE_TASK, {
     //arreglo de consultas que se van a ejecutar despues de CREATE_TASK
-    refetchQueries: ['getProject'] //para 
+    refetchQueries: ['getProject']
   });
   const params = useParams();
 
